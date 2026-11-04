@@ -1,0 +1,19 @@
+{
+  "name": "hgrab",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "typecheck": "bun check"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^7"
+  },
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "picocolors": "^1.1.1"
+  }
+}
