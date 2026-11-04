@@ -77,7 +77,7 @@ function fileNameFactory(details: GameDetails) {
     values.push(details.id);
   }
 
-  return (values.join(" ") + ".cia").replaceAll("<>:\"/|?*", "");
+  return (values.join(" ") + ".cia").replace(/[<>:"/\\|?*]/g, "");
 }
 
 await (async () => {
