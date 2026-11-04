@@ -9,7 +9,7 @@ function parseID(url: string): string | undefined {
 
 interface GameDetails {
   title: string;
-  type: "game" | "update" | "dlc";
+  type: "base" | "update" | "dlc";
   version: string;
   dl: string;
   id: string;
@@ -28,10 +28,10 @@ async function parseDetails(id: string): Promise<GameDetails | undefined> {
     .first()
     .text();
 
-  let type : "game" | "update" | "dlc";
+  let type : "base" | "update" | "dlc";
 
   if(typelink.toLowerCase().includes("games")) {
-    type = "game"
+    type = "base"
   } else if(typelink.toLowerCase().includes("update")) {
     type = "update";
   } else {
@@ -67,7 +67,7 @@ function fileNameFactory(details: GameDetails) {
 
   values.push(details.title);
 
-  if (details.type == "game") {
+  if (details.type == "base") {
     values.push("Base");
   } else if (details.type == "update") {
     values.push("Update");
