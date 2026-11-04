@@ -9,9 +9,10 @@ function parseID(url: string): string | undefined {
 
 interface GameDetails {
   title: string;
-  type: "base" | "update";
+  type: "game" | "update" | "dlc";
   version: string;
   dl: string;
+  id: string;
 }
 
 async function parseDetails(id: string): Promise<GameDetails | undefined> {
@@ -27,8 +28,16 @@ async function parseDetails(id: string): Promise<GameDetails | undefined> {
     .first()
     .text();
 
-  const type = typelink.toLowerCase().includes("games") ? "base" : "update";
+  let type : "game" | "update" | "dlc";
 
+  if(typelink.toLowerCase().includes("games")) {
+    type = "game"
+  } else if(typelink.toLowerCase().includes("update")) {
+    type = "update";
+  } else {
+    type = "dlc";
+  }
+  
   const version = $("span.red").first().text();
 
   const dl = $(".btn.btn-c3").first().attr("href");
@@ -49,6 +58,7 @@ async function parseDetails(id: string): Promise<GameDetails | undefined> {
     type: type,
     version,
     dl: dl as any,
+    id
   };
 }
 
@@ -57,11 +67,14 @@ function fileNameFactory(details: GameDetails) {
 
   values.push(details.title);
 
-  if (details.type == "base") {
+  if (details.type == "game") {
     values.push("Base");
-  } else {
+  } else if (details.type == "update") {
     values.push("Update");
     values.push(details.version.split(" ")[0]);
+  } else if (details.type == "dlc") {
+    values.push("DLC");
+    values.push(details.id);
   }
 
   return values.join(" ") + ".cia";
