@@ -42,7 +42,8 @@ in the case of yanbf, ensure the `generator` binary is in your PATH as `yanbf`, 
 
 ## notes 
 i would prefer to use something more usage agnostic and easier to bundle than yanbf, but it's the simplest solution for now  
-hgrab currently does not support disabling forwarder creation for nds games
+hgrab currently does not support disabling forwarder creation for nds games  
+i would like to implement gba title support at some point, but without hshop hosting relevant files i think it's out of scope
 
 ## relevant repos
 [NRT_Forwarder](https://github.com/RocketRobz/NTR_Forwarder)
