@@ -36,8 +36,8 @@ chmod +x ./build.sh
 ```
 
 ## dependencies (system agnostic)
-`custominstall`
-`YANBF` (https://github.com/YANBForwarder/YANBF)
+`custominstall`  
+`YANBF` (https://github.com/YANBForwarder/YANBF)  
 in the case of yanbf, ensure the `generator` binary is in your PATH as `yanbf`, or set the YANBF_BINARY env to its location
 
 ## notes 
