@@ -34,7 +34,7 @@ export async function parseDetails(
 
     let extension: "cia" | "nds" = "cia";
 
-    if (typelink.toLowerCase().includes("games")) {
+    if (typelink.toLowerCase().includes("games") || typelink.toLowerCase().includes("virtual-console")) {
         type = "base";
     } else if (typelink.toLowerCase().includes("update")) {
         type = "update";

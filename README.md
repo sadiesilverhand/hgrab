@@ -41,7 +41,7 @@ chmod +x ./build.sh
 in the case of yanbf, ensure the `generator` binary is in your PATH as `yanbf`, or set the YANBF_BINARY env to its location
 
 ## notes 
-i would prefer to use something more usage agnostic and easier to bundle than yanbf, but it's the simplest solution for now
+i would prefer to use something more usage agnostic and easier to bundle than yanbf, but it's the simplest solution for now  
 hgrab currently does not support disabling forwarder creation for nds games
 
 ## relevant repos
